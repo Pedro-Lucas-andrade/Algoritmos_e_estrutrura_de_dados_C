@@ -34,7 +34,7 @@ void em_ordem(ArvAVL *raiz){
         return;
     if(*raiz != NULL){
         em_ordem(&((*raiz)->esq));
-        printf("%d\n",(*raiz)->caractere);
+        printf("%c\n",(*raiz)->caractere);
         em_ordem(&((*raiz)->dir));
     }
 }
@@ -45,7 +45,7 @@ void pos_ordem(ArvAVL *raiz){
     if(*raiz != NULL){
         pos_ordem(&((*raiz)->esq));
         pos_ordem(&((*raiz)->dir));
-        printf("%d\n",(*raiz)->caractere);
+        printf("%c\n",(*raiz)->caractere);
     }
 }
 

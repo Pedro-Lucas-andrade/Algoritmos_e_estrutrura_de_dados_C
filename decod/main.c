@@ -10,7 +10,6 @@ int main() {
     char k[] = "nos.txt";
     FILE *mensagem;
     FILE *nos;
-    char msg[2000];
     
     typedef struct Id_Imp{
         int ids[150];
@@ -31,25 +30,24 @@ int main() {
     nos = fopen(k, "r");
     
     
-    void imprime_mensagem(ArvAVL *arvores){
-        int i = 0;
-        printf("Árvore %d (Ordem %d): ", i+1, arvores[i]->ordemDeImpressao);
-        switch (arvores[i]->ordemDeImpressao) {
-            case 1:
-                pre_ordem(arvores[i]);
-                break;
-            case 2:
-                em_ordem(arvores[i]);
-                break;
-            case 3:
-                pos_ordem(arvores[i]);
-                break;
-            default:
-                printf("Tipo de impressão inválido!\n");
-                break;
-        }
-        printf("\n");
+    void imprime_mensagem(ArvAVL *arvores, int ordem, int id){
+    printf("Árvore %d (Ordem %d): \n", id, ordem);
+    switch (ordem) {
+        case 1:
+            pre_ordem(arvores);
+            break;
+        case 2:
+            em_ordem(arvores);
+            break;
+        case 3:
+            pos_ordem(arvores);
+            break;
+        default:
+            printf("Tipo de impressão inválido!\n");
+            break;
     }
+    printf("\n");
+}
     
     
     if (mensagem == NULL) {
@@ -85,7 +83,7 @@ int main() {
     }
     
     while( l++ < qtd){
-        imprime_mensagem(arvore[idp.ids[l]]);
+        imprime_mensagem(arvore[idp.ids[l]], idp.Imp[l], idp.ids[l]);
     }
     
 

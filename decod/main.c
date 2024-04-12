@@ -22,7 +22,7 @@ int main() {
     int chave;
     int res;
     Id_Imp idp;
-    int qtd, j, l = 0;
+    int qtd = 0, j = 0, l = 0;
     
     ArvAVL *arvore[MAX_ARV];
     
@@ -31,23 +31,23 @@ int main() {
     
     
     void imprime_mensagem(ArvAVL *arvores, int ordem, int id){
-    printf("Árvore %d (Ordem %d): \n", id, ordem);
-    switch (ordem) {
-        case 1:
-            pre_ordem(arvores);
-            break;
-        case 2:
-            em_ordem(arvores);
-            break;
-        case 3:
-            pos_ordem(arvores);
-            break;
-        default:
-            printf("Tipo de impressão inválido!\n");
-            break;
+        printf("Árvore %d (Ordem %d): \n", id, ordem);
+        switch (ordem) {
+            case 1:
+                pre_ordem(arvores);
+                break;
+            case 2:
+                em_ordem(arvores);
+                break;
+            case 3:
+                pos_ordem(arvores);
+                break;
+            default:
+                printf("Tipo de impressão inválido!\n");
+                break;
+        }
+        printf("\n");
     }
-    printf("\n");
-}
     
     
     if (mensagem == NULL) {
@@ -82,10 +82,17 @@ int main() {
         printf("Fim da leitura do arquivo nos.txt\n");
     }
     
-    while( l++ < qtd){
+    while( l < qtd){
         imprime_mensagem(arvore[idp.ids[l]], idp.Imp[l], idp.ids[l]);
+        l++;
     }
     
-
+    for (int i = 0; i < qtd; i++) {
+        Arvore_AVL(arvore[idp.ids[i]]);
+    }
+    
+    fclose(mensagem);
+    fclose(nos);
+    
     return 0;
 }

@@ -62,7 +62,6 @@ void libera_No(ArvAVL No) {
 void Arvore_AVL(ArvAVL* Raiz) {
     if (Raiz == NULL || *Raiz == NULL) return;
     libera_No(*Raiz);
-    free(*Raiz);
     *Raiz = NULL;
 }
 
